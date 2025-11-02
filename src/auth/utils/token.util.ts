@@ -25,7 +25,7 @@ export const signAccessToken = (
       email: user.email,
       displayName: user.displayName,
     })
-  } catch (error) {
+  } catch (_error) {
     throw new UnauthorizedException('Failed to sign access token')
   }
 }
@@ -46,7 +46,7 @@ export const signRefreshToken = (
       },
       { secret, expiresIn },
     )
-  } catch (error) {
+  } catch (_error) {
     throw new UnauthorizedException('Failed to sign refresh token')
   }
 }
@@ -58,7 +58,7 @@ export const verifyRefreshToken = async (
 ): Promise<TokenPayload> => {
   try {
     return await jwtService.verifyAsync<TokenPayload>(token, { secret })
-  } catch (error) {
+  } catch (_error) {
     throw new UnauthorizedException('Invalid or expired refresh token')
   }
 }
@@ -66,7 +66,7 @@ export const verifyRefreshToken = async (
 export const decodeToken = (jwtService: JwtService, token: string): any => {
   try {
     return jwtService.decode(token)
-  } catch (error) {
+  } catch (_error) {
     throw new UnauthorizedException('Failed to decode token')
   }
 }
