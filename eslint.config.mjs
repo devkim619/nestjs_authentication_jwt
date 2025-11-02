@@ -1,8 +1,8 @@
-const eslint = require('@eslint/js');
-const tseslint = require('typescript-eslint');
-const prettierConfig = require('eslint-config-prettier');
+import eslint from '@eslint/js';
+import tseslint from 'typescript-eslint';
+import prettierConfig from 'eslint-config-prettier';
 
-module.exports = tseslint.config(
+export default tseslint.config(
   eslint.configs.recommended,
   ...tseslint.configs.recommended,
   prettierConfig,
@@ -11,7 +11,7 @@ module.exports = tseslint.config(
       parser: tseslint.parser,
       parserOptions: {
         project: './tsconfig.json',
-        tsconfigRootDir: __dirname,
+        tsconfigRootDir: import.meta.dirname,
         sourceType: 'module',
       },
       globals: {
@@ -20,7 +20,13 @@ module.exports = tseslint.config(
       },
     },
     files: ['**/*.ts'],
-    ignores: ['dist', 'node_modules', 'eslint.config.js', '.eslintrc.js'],
+    ignores: [
+      'dist',
+      'node_modules',
+      'eslint.config.mjs',
+      'eslint.config.js',
+      '.eslintrc.js',
+    ],
     rules: {
       '@typescript-eslint/interface-name-prefix': 'off',
       '@typescript-eslint/explicit-function-return-type': 'off',
