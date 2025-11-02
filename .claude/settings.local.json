@@ -3,7 +3,11 @@
     "allow": [
       "Bash(test:*)",
       "Bash(npm install:*)",
-      "Bash(mkdir:*)"
+      "Bash(mkdir:*)",
+      "Bash(git credential-osxkeychain:*)",
+      "Bash(npm run lint:*)",
+      "Bash(npm run build:*)",
+      "Bash(npm run test:*)"
     ],
     "deny": [],
     "ask": []

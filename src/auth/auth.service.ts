@@ -34,7 +34,7 @@ export class AuthService {
       return isValid
         ? { id: user.id, email: user.email, displayName: user.displayName }
         : null
-    } catch (error) {
+    } catch (_error) {
       throw new InternalServerErrorException('Failed to validate user')
     }
   }
@@ -60,7 +60,7 @@ export class AuthService {
         refresh_token,
         refresh_token_id: saved.id,
       }
-    } catch (error) {
+    } catch (_error) {
       throw new InternalServerErrorException('Failed to issue tokens')
     }
   }
@@ -153,7 +153,7 @@ export class AuthService {
       }
 
       return { ok: true }
-    } catch (error) {
+    } catch (_error) {
       throw new InternalServerErrorException('Failed to logout')
     }
   }

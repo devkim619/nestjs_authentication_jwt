@@ -85,7 +85,7 @@ export class AuthController {
         'User registered successfully',
         HttpStatus.CREATED,
       )
-    } catch (error) {
+    } catch (_error) {
       throw new InternalServerErrorException('Failed to register user')
     }
   }
@@ -127,7 +127,7 @@ export class AuthController {
       }
 
       return createSuccessResponse(responseData, 'Login successful')
-    } catch (error) {
+    } catch (_error) {
       throw new InternalServerErrorException('Failed to login')
     }
   }
@@ -204,7 +204,7 @@ export class AuthController {
       const responseData: LogoutResponseData = { ok: true }
 
       return createSuccessResponse(responseData, 'Logout successful')
-    } catch (error) {
+    } catch (_error) {
       throw new InternalServerErrorException('Failed to logout')
     }
   }

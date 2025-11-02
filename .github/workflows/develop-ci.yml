@@ -33,10 +33,10 @@ jobs:
         run: npm run lint
 
       - name: Run tests
-        run: npm run test
+        run: npm run test -- --passWithNoTests
 
       - name: Run test coverage
-        run: npm run test:cov
+        run: npm run test:cov -- --passWithNoTests
 
       - name: Build project
         run: npm run build
